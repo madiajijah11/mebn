@@ -1,65 +1,83 @@
 <!-- DataTables Example -->
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#add-modal">
-            Add
-        </button>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>NPM</th>
-                        <th>Jurusan</th>
-                        <th>Alamat</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for(let i=0; i < mahasiswa.length; i++) { %>
-                        <!-- kode diatas adalah perulangan, yang mana fungsinya untuk melakukan penomoran pada kolom No di tabel,
+  <div class="card-header py-3">
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-outline-primary btn-sm"
+      data-toggle="modal"
+      data-target="#add-modal"
+    >
+      Add
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>NPM</th>
+            <th>Jurusan</th>
+            <th>Alamat</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i < mahasiswa.length; i++) { %>
+          <!-- kode diatas adalah perulangan, yang mana fungsinya untuk melakukan penomoran pada kolom No di tabel,
                             dengan cara membuat let i sama dengan nol, lalu i sampai dengan jumlah atau panjang data dari mahasiswa.length,
                             lalu i++ setiap perulangan akan bertambah -->
-                        <tr>
-                            <td>
-                                <%= i +1 %>
-                                    <!-- pastinya setiap perulangan dimulai dari 0 maka dari itu,
+          <tr>
+            <td>
+              <%= i +1 %>
+              <!-- pastinya setiap perulangan dimulai dari 0 maka dari itu,
                                     maka itu kita menambahkan variabel i +1 yang mana angka yang dimulai langsung dari 1,
                                     jika kalian menggantinya dengan +2 maka perurutan angka dimulai dari 2,3,4, dst -->
-                            </td>
-                            <td>
-                                <%= mahasiswa[i].nama %>
-                                    <!-- memanggil scheme dari mahasiswa lalu mendefinisikan array yang keberapa melalui [i]
+            </td>
+            <td>
+              <%= mahasiswa[i].nama %>
+              <!-- memanggil scheme dari mahasiswa lalu mendefinisikan array yang keberapa melalui [i]
                                     dan menampilkan array dari nama yang ada di database kita. untuk npm, alamat,
                                     dstnya penjelasannya sama ya -->
-                            </td>
-                            <td>
-                                <%= mahasiswa[i].npm %>
-                            </td>
-                            <td>
-                                <%= mahasiswa[i].jurusan %>
-                            </td>
-                            <td>
-                                <%= mahasiswa[i].alamat %>
-                            </td>
-                            <td class="text-center">
-                                <form action="/mahasiswa/<%= mahasiswa[i].id %>?_method=DELETE" method="POST">
-                                    <a href="javascript:void()" class="btn btn-outline-warning btn-sm button-update"
-                                        data-id="<%= mahasiswa[i].id %>" data-nama="<%= mahasiswa[i].nama %>"
-                                        data-npm="<%= mahasiswa[i].npm %>" data-jurusan="<%= mahasiswa[i].jurusan %>"
-                                        data-alamat="<%= mahasiswa[i].alamat %>">Edit</a>
-                                    <button type="submit" class="btn btn-outline-danger btn-sm"
-                                        onclick="return confirm('Apa kamu yakin ingin menghapus?');">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <% } %>
-                </tbody>
-            </table>
-        </div>
+            </td>
+            <td><%= mahasiswa[i].npm %></td>
+            <td><%= mahasiswa[i].jurusan %></td>
+            <td><%= mahasiswa[i].alamat %></td>
+            <td class="text-center">
+              <form
+                action="/mahasiswa/<%= mahasiswa[i].id %>?_method=DELETE"
+                method="POST"
+              >
+                <a
+                  href="javascript:void()"
+                  class="btn btn-outline-warning btn-sm button-update"
+                  data-id="<%= mahasiswa[i].id %>"
+                  data-nama="<%= mahasiswa[i].nama %>"
+                  data-npm="<%= mahasiswa[i].npm %>"
+                  data-jurusan="<%= mahasiswa[i].jurusan %>"
+                  data-alamat="<%= mahasiswa[i].alamat %>"
+                  >Edit</a
+                >
+                <button
+                  type="submit"
+                  class="btn btn-outline-danger btn-sm"
+                  onclick="return confirm('Apa kamu yakin ingin menghapus?');"
+                >
+                  Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
