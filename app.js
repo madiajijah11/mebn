@@ -19,17 +19,15 @@ const methodOverride = require("method-override");
  * 27017 adalah lokal port default
  * jika menggunakan angka 27017 gagal bisa menggunakan 127.0.0.1
  * penjelasan ini saya dapatkan dari dokumentasi resminya
+ * mongodb+srv://<username>:<password>@cluster0.nr37s.mongodb.net/<database>?retryWrites=true&w=majority
  */
-mongoose.connect(
-  "mongodb+srv://<username>:<password>@cluster0.nr37s.mongodb.net/<database>?retryWrites=true&w=majority",
-  {
-    // untuk pengertian fungsi dibawah ini di dokumentasi resminya sangat dijelaskan, jangan lupa dibaca.
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }
-);
+mongoose.connect("mongodb://localhost:27017/db_mahasiswa", {
+  // untuk pengertian fungsi dibawah ini di dokumentasi resminya sangat dijelaskan, jangan lupa dibaca.
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
